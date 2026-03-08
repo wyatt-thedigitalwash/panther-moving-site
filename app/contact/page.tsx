@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SITE } from "@/lib/constants";
 import { PhoneIcon } from "@/components/Icons";
 import ContactForm from "@/components/ContactForm";
@@ -84,13 +85,14 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-lg bg-black-primary p-6 text-center">
-              <div className="font-heading text-2xl font-bold tracking-wider text-gold uppercase">
-                {SITE.name}
-              </div>
-              <p className="mt-2 text-sm text-grey">
-                Tampa&apos;s trusted local movers
-              </p>
+            <div className="flex items-center justify-center rounded-lg border border-[#eee] bg-white p-8">
+              <Image
+                src="/assets/panther-moving-branding-01.svg"
+                alt="Panther Moving logo"
+                width={220}
+                height={120}
+                className="h-auto w-[220px]"
+              />
             </div>
           </div>
 

@@ -37,35 +37,70 @@ const FAQS = [
   },
 ];
 
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      className={`shrink-0 text-gold transition-transform duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        open ? "rotate-180" : ""
+      }`}
+    >
+      <path
+        d="M6 9l6 6 6-6"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function FAQAccordion() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
     <div>
-      {FAQS.map((faq, i) => (
-        <div key={i} className="border-b border-[#eee]">
-          <button
-            onClick={() => setOpen(open === i ? null : i)}
-            className="flex w-full items-center justify-between bg-transparent border-none cursor-pointer py-5 text-left"
-          >
-            <span className="font-heading text-base font-semibold tracking-[0.3px]">
-              {faq.q}
-            </span>
-            <span
-              className={`ml-3 shrink-0 font-heading text-xl text-gold transition-transform duration-200 ${
-                open === i ? "rotate-45" : ""
-              }`}
+      {FAQS.map((faq, i) => {
+        const isOpen = open === i;
+
+        return (
+          <div key={i} className="border-b border-[#eee]">
+            <button
+              onClick={() => setOpen(isOpen ? null : i)}
+              className="flex w-full items-center justify-between bg-transparent border-none cursor-pointer py-5 text-left"
+              aria-expanded={isOpen}
             >
-              +
-            </span>
-          </button>
-          {open === i && (
-            <div className="pb-5 text-sm leading-[1.8] font-light text-grey">
-              {faq.a}
+              <span className="font-heading text-base font-semibold tracking-[0.3px]">
+                {faq.q}
+              </span>
+              <ChevronIcon open={isOpen} />
+            </button>
+
+            {/* Animated content wrapper using CSS grid row trick */}
+            <div
+              className="grid transition-[grid-template-rows] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
+              style={{
+                gridTemplateRows: isOpen ? "1fr" : "0fr",
+              }}
+            >
+              <div className="overflow-hidden">
+                <div
+                  className="pb-5 text-sm leading-[1.8] font-light text-grey transition-opacity duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
+                  style={{
+                    opacity: isOpen ? 1 : 0,
+                  }}
+                >
+                  {faq.a}
+                </div>
+              </div>
             </div>
-          )}
-        </div>
-      ))}
+          </div>
+        );
+      })}
     </div>
   );
 }

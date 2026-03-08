@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
 import {
@@ -129,8 +130,14 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hidden justify-center lg:flex">
-            <div className="flex h-72 w-72 items-center justify-center rounded-full border-2 border-gold/20 bg-black-secondary/50">
-              <TruckIcon color="#C9AC2A" size={120} />
+            <div className="relative h-[400px] w-full overflow-hidden rounded-lg border-2 border-gold/20">
+              <Image
+                src="/assets/mover-carrying-furniture.webp"
+                alt="Panther Moving crew member carrying furniture wrapped in a protective blanket"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -353,6 +360,53 @@ export default function HomePage() {
                 <div className="font-heading text-[13px] tracking-[1px] text-white">
                   &mdash; {review.n}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERY */}
+      <section className="bg-off-white px-6 py-20">
+        <div className="mx-auto max-w-[1000px]">
+          <div className="mb-12 text-center">
+            <div className="section-label">Our Work</div>
+            <h2 className="section-heading">
+              Packed With <span className="text-gold">Care</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                src: "/assets/mover-loading-truck.webp",
+                alt: "Panther Moving crew member loading wrapped furniture onto the truck",
+              },
+              {
+                src: "/assets/packed-moving-truck.webp",
+                alt: "Neatly packed moving truck with labeled boxes and wrapped furniture",
+              },
+              {
+                src: "/assets/organized-truck-load.webp",
+                alt: "Organized truck load with boxes and equipment secured for transport",
+              },
+              {
+                src: "/assets/secured-boxes-in-truck.webp",
+                alt: "Shrink-wrapped and secured boxes ready for a safe move",
+              },
+            ].map((img, i) => (
+              <div
+                key={i}
+                className={`relative overflow-hidden rounded-lg ${
+                  i === 0 ? "sm:col-span-2 lg:col-span-1 lg:row-span-2 h-64 lg:h-full" : "h-64"
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-300 hover:scale-105"
+                  sizes={i === 0 ? "(max-width: 1024px) 100vw, 33vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
+                />
               </div>
             ))}
           </div>

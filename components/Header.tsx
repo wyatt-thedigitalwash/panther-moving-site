@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SITE } from "@/lib/constants";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -37,9 +37,14 @@ export default function Header() {
         }`}
       >
         <Link href="/" className="flex items-center gap-2.5">
-          <span className="font-heading text-xl font-bold tracking-wider text-white uppercase">
-            {SITE.name}
-          </span>
+          <Image
+            src="/assets/panther-moving-site-logo.svg"
+            alt="Panther Moving"
+            width={160}
+            height={40}
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
         <ul className="hidden items-center gap-7 md:flex">

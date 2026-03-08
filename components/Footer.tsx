@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
@@ -15,9 +16,13 @@ export default function Footer() {
         <div className="mb-9 grid grid-cols-1 gap-6 md:grid-cols-3 items-start">
           {/* Brand */}
           <div>
-            <div className="mb-3.5 font-heading text-xl font-bold tracking-wider text-white uppercase">
-              {SITE.name}
-            </div>
+            <Image
+              src="/assets/panther-moving-branding-02.svg"
+              alt="Panther Moving"
+              width={180}
+              height={60}
+              className="mb-3.5 h-auto w-[180px]"
+            />
             <p className="text-[13px] leading-[1.7] text-grey">
               Tampa&apos;s trusted local movers. Fast, affordable, professional
               &mdash; every time.
