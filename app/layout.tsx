@@ -26,10 +26,6 @@ export const metadata: Metadata = {
   description:
     "Professional, affordable moving services across Tampa Bay. Residential, commercial, packing & more. Licensed & insured. Get a free quote today.",
   metadataBase: new URL("https://panthermoving.com"),
-  icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -38,12 +34,21 @@ export const metadata: Metadata = {
     title: "Panther Moving | Tampa's Trusted Local Movers",
     description:
       "Professional, affordable moving services across Tampa Bay. Licensed & insured. Get a free quote today.",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Panther Moving — Tampa's Trusted Moving Company",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Panther Moving | Tampa's Trusted Local Movers",
     description:
       "Professional, affordable moving services across Tampa Bay. Licensed & insured. Get a free quote today.",
+    images: ["/twitter-image.png"],
   },
 };
 
