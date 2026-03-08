@@ -44,6 +44,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       height="20"
       viewBox="0 0 24 24"
       fill="none"
+      aria-hidden="true"
       className={`shrink-0 text-gold transition-transform duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
         open ? "rotate-180" : ""
       }`}
@@ -66,6 +67,7 @@ export default function FAQAccordion() {
     <div>
       {FAQS.map((faq, i) => {
         const isOpen = open === i;
+        const panelId = `faq-panel-${i}`;
 
         return (
           <div key={i} className="border-b border-[#eee]">
@@ -73,6 +75,7 @@ export default function FAQAccordion() {
               onClick={() => setOpen(isOpen ? null : i)}
               className="flex w-full items-center justify-between bg-transparent border-none cursor-pointer py-5 text-left"
               aria-expanded={isOpen}
+              aria-controls={panelId}
             >
               <span className="font-heading text-base font-semibold tracking-[0.3px]">
                 {faq.q}
@@ -82,6 +85,8 @@ export default function FAQAccordion() {
 
             {/* Animated content wrapper using CSS grid row trick */}
             <div
+              id={panelId}
+              role="region"
               className="grid transition-[grid-template-rows] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
               style={{
                 gridTemplateRows: isOpen ? "1fr" : "0fr",

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   HomeIcon,
@@ -53,24 +52,15 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-black-primary px-6 pt-36 pb-16 text-center">
-        <Image
-          src="/assets/mover-loading-truck.webp"
-          alt="Panther Moving crew loading furniture onto the moving truck"
-          fill
-          className="object-cover opacity-20"
-          priority
-        />
+      <section className="relative bg-black-primary px-6 pt-36 pb-16 text-center">
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gold" />
-        <div className="relative">
-          <div className="section-label">What We Do</div>
-          <h1 className="section-heading text-white">
-            Our <span className="text-gold">Services</span>
-          </h1>
-          <p className="mt-2.5 text-[15px] font-light text-grey-light">
-            Professional, affordable moving services across Tampa Bay
-          </p>
-        </div>
+        <div className="section-label">What We Do</div>
+        <h1 className="section-heading text-white">
+          Our <span className="text-gold">Services</span>
+        </h1>
+        <p className="mt-2.5 text-[15px] font-light text-grey-light">
+          Professional, affordable moving services across Tampa Bay
+        </p>
       </section>
 
       {/* Service List */}

@@ -1,13 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SITE } from "@/lib/constants";
-
-const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
-];
+import { SITE, NAV_LINKS } from "@/lib/constants";
 
 export default function Footer() {
   return (

@@ -81,27 +81,34 @@ export default function HomePage() {
       <LocalBusinessSchema />
 
       {/* HERO */}
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-black-primary">
-        {/* Diagonal accent */}
+      <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-black-primary">
+        {/* Background image */}
+        <Image
+          src="/assets/panther-moving-boxing.webp"
+          alt="Panther Moving team packing boxes for a move"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Dark overlay — heavier on left for text readability */}
         <div
-          className="absolute top-0 right-0 h-full w-[55%]"
+          className="absolute inset-0"
           style={{
-            background: "linear-gradient(160deg, rgba(201,172,42,0.03), rgba(201,172,42,0.01))",
-            clipPath: "polygon(30% 0, 100% 0, 100% 100%, 0% 100%)",
+            background: "linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.4))",
           }}
         />
         {/* Gold stripe */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gold" />
 
-        <div className="relative mx-auto grid w-full max-w-[1100px] grid-cols-1 items-center gap-12 px-8 pt-36 pb-24 lg:grid-cols-2">
-          <div>
+        <div className="relative w-full max-w-[1100px] mx-auto px-8 pt-36 pb-24">
+          <div className="max-w-[600px]">
             <div className="section-label">Tampa&apos;s Trusted Moving Company</div>
-            <h1 className="section-heading mb-4 text-[clamp(40px,6vw,64px)] text-white">
+            <h1 className="section-heading mb-5 text-[clamp(44px,7vw,72px)] text-white">
               Stress-Free Moves.
               <br />
               <span className="text-gold">Guaranteed.</span>
             </h1>
-            <p className="mb-7 max-w-[460px] text-[17px] font-light leading-[1.8] text-grey-light">
+            <p className="mb-8 max-w-[500px] text-lg font-medium leading-[1.8] text-white/85">
               From apartments to full homes, Panther Moving makes your Tampa
               move fast, easy, and affordable &mdash; with a local team you can
               count on.
@@ -121,23 +128,12 @@ export default function HomePage() {
                 (text) => (
                   <div key={text} className="flex items-center gap-1.5">
                     <CheckIcon />
-                    <span className="text-[13px] font-normal text-grey-light">
+                    <span className="text-[13px] font-semibold text-white/80">
                       {text}
                     </span>
                   </div>
                 )
               )}
-            </div>
-          </div>
-          <div className="hidden justify-center lg:flex">
-            <div className="relative h-[400px] w-full overflow-hidden rounded-lg border-2 border-gold/20">
-              <Image
-                src="/assets/mover-carrying-furniture.webp"
-                alt="Panther Moving crew member carrying furniture wrapped in a protective blanket"
-                fill
-                className="object-cover"
-                priority
-              />
             </div>
           </div>
         </div>
@@ -388,6 +384,10 @@ export default function HomePage() {
               {
                 src: "/assets/organized-truck-load.webp",
                 alt: "Organized truck load with boxes and equipment secured for transport",
+              },
+              {
+                src: "/assets/mover-carrying-furniture.webp",
+                alt: "Panther Moving crew member carrying furniture wrapped in a protective blanket",
               },
               {
                 src: "/assets/secured-boxes-in-truck.webp",

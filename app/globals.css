@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-gold: #C9AC2A;
-  --color-gold-light: #D4BA3E;
-  --color-gold-dark: #B59A1E;
+  --color-gold: #A8891A;
+  --color-gold-light: #C9AC2A;
+  --color-gold-dark: #8A6F10;
   --color-black-primary: #111111;
   --color-black-secondary: #1A1A1A;
   --color-black-tertiary: #222222;
   --color-slate: #2C2C2C;
-  --color-grey: #888888;
+  --color-grey: #666666;
   --color-grey-light: #AAAAAA;
   --color-off-white: #F8F7F4;
   --color-warm: #FAFAF6;
@@ -142,4 +142,9 @@ body {
   display: block;
   margin-bottom: 4px;
   text-transform: uppercase;
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 80px;
 }

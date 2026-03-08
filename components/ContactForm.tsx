@@ -1,25 +1,30 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { SITE } from "@/lib/constants";
 
 interface FormData {
   name: string;
+  email: string;
   phone: string;
   moveDate: string;
   rooms: string;
   city: string;
   pickup: string;
   delivery: string;
+  _honeypot: string;
 }
 
 const INITIAL: FormData = {
   name: "",
+  email: "",
   phone: "",
   moveDate: "",
   rooms: "",
   city: "",
   pickup: "",
   delivery: "",
+  _honeypot: "",
 };
 
 const ROOM_OPTIONS = [
@@ -79,6 +84,19 @@ export default function ContactForm() {
         Request a Quote
       </h3>
 
+      {/* Honeypot — hidden from real users */}
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="hp-field">Do not fill this in</label>
+        <input
+          id="hp-field"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form._honeypot}
+          onChange={update("_honeypot")}
+        />
+      </div>
+
       <div className="mb-3.5">
         <label className="form-label">FULL NAME</label>
         <input
@@ -99,6 +117,18 @@ export default function ContactForm() {
           placeholder="(555) 555-5555"
           value={form.phone}
           onChange={update("phone")}
+          className="form-input"
+        />
+      </div>
+
+      <div className="mb-3.5">
+        <label className="form-label">EMAIL ADDRESS</label>
+        <input
+          type="email"
+          required
+          placeholder="you@example.com"
+          value={form.email}
+          onChange={update("email")}
           className="form-input"
         />
       </div>
@@ -175,7 +205,7 @@ export default function ContactForm() {
 
       {status === "error" && (
         <p className="mt-3 text-center text-sm text-red-500">
-          Something went wrong. Please call us at (813) 508-7860 instead.
+          Something went wrong. Please call us at {SITE.phone} instead.
         </p>
       )}
     </form>

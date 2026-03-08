@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { SITE } from "@/lib/constants";
 import { PhoneIcon } from "@/components/Icons";
-import ContactForm from "@/components/ContactForm";
+import QuoteForm from "@/components/QuoteForm";
+import ProgressIndicator from "@/components/ProgressIndicator";
 
 export const metadata: Metadata = {
   title: "Contact Us | Get a Free Moving Quote",
@@ -26,8 +27,11 @@ export default function ContactPage() {
         </p>
       </section>
 
+      {/* Progress Indicator */}
+      <ProgressIndicator currentStep={1} />
+
       {/* Contact Content */}
-      <section className="mx-auto max-w-[1000px] px-6 pt-12 pb-20">
+      <section className="mx-auto max-w-[1000px] px-6 pt-4 pb-20">
         <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-2">
           {/* Left - Contact Info */}
           <div>
@@ -97,7 +101,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right - Form */}
-          <ContactForm />
+          <QuoteForm />
         </div>
       </section>
     </>
