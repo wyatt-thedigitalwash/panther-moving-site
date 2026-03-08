@@ -1,0 +1,22 @@
+export const SITE = {
+  name: "Panther Moving",
+  tagline: "Stress-Free Moves. Guaranteed.",
+  phone: "(813) 508-7860",
+  phoneRaw: "8135087860",
+  email: "scottr@panthermoving.com",
+  address: "2107 W Platt St, Tampa, FL",
+  city: "Tampa",
+  state: "FL",
+  instagram: "https://www.instagram.com/panthermoving",
+  instagramHandle: "@panthermoving",
+  serviceAreas: [
+    "Tampa",
+    "St. Petersburg",
+    "Clearwater",
+    "Brandon",
+    "Riverview",
+    "Wesley Chapel",
+    "Plant City",
+    "Lakeland",
+  ],
+} as const;

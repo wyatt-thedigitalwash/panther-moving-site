@@ -1,65 +1,406 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { SITE } from "@/lib/constants";
+import {
+  ShieldIcon,
+  ClockIcon,
+  HandIcon,
+  HomeIcon,
+  ApartmentIcon,
+  BuildingIcon,
+  BoxIcon,
+  TruckIcon,
+  SofaIcon,
+  QuoteIcon,
+  StarIcon,
+  CheckIcon,
+  PhoneIcon,
+} from "@/components/Icons";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Panther Moving | Tampa's Trusted Local Movers",
+  description:
+    "Professional, affordable moving services across Tampa Bay. Residential, apartment, commercial moves, packing & more. Licensed & insured. Get a free quote today.",
+};
+
+function LocalBusinessSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://panthermoving.com",
+    name: SITE.name,
+    description:
+      "Professional, affordable moving services across Tampa Bay. Licensed & insured local movers.",
+    telephone: SITE.phone,
+    email: SITE.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "2107 W Platt St",
+      addressLocality: "Tampa",
+      addressRegion: "FL",
+      addressCountry: "US",
+    },
+    areaServed: SITE.serviceAreas.map((city) => ({
+      "@type": "City",
+      name: city,
+    })),
+    priceRange: "$$",
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "07:00",
+      closes: "20:00",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      reviewCount: "500",
+    },
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export default function HomePage() {
+  return (
+    <>
+      <LocalBusinessSchema />
+
+      {/* HERO */}
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-black-primary">
+        {/* Diagonal accent */}
+        <div
+          className="absolute top-0 right-0 h-full w-[55%]"
+          style={{
+            background: "linear-gradient(160deg, rgba(201,172,42,0.03), rgba(201,172,42,0.01))",
+            clipPath: "polygon(30% 0, 100% 0, 100% 100%, 0% 100%)",
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        {/* Gold stripe */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gold" />
+
+        <div className="relative mx-auto grid w-full max-w-[1100px] grid-cols-1 items-center gap-12 px-8 pt-36 pb-24 lg:grid-cols-2">
+          <div>
+            <div className="section-label">Tampa&apos;s Trusted Moving Company</div>
+            <h1 className="section-heading mb-4 text-[clamp(40px,6vw,64px)] text-white">
+              Stress-Free Moves.
+              <br />
+              <span className="text-gold">Guaranteed.</span>
+            </h1>
+            <p className="mb-7 max-w-[460px] text-[17px] font-light leading-[1.8] text-grey-light">
+              From apartments to full homes, Panther Moving makes your Tampa
+              move fast, easy, and affordable &mdash; with a local team you can
+              count on.
+            </p>
+            <div className="mb-8 flex flex-wrap gap-3">
+              <Link href="/contact" className="btn-gold">
+                Get Your Free Quote
+              </Link>
+              <a href={`tel:${SITE.phoneRaw}`} className="no-underline">
+                <span className="btn-outline">
+                  <PhoneIcon /> {SITE.phone}
+                </span>
+              </a>
+            </div>
+            <div className="flex flex-wrap gap-5">
+              {["Licensed & Insured", "Local Tampa Team", "No Hidden Fees"].map(
+                (text) => (
+                  <div key={text} className="flex items-center gap-1.5">
+                    <CheckIcon />
+                    <span className="text-[13px] font-normal text-grey-light">
+                      {text}
+                    </span>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+          <div className="hidden justify-center lg:flex">
+            <div className="flex h-72 w-72 items-center justify-center rounded-full border-2 border-gold/20 bg-black-secondary/50">
+              <TruckIcon color="#C9AC2A" size={120} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST BAR */}
+      <section className="bg-gold px-6 py-4">
+        <div className="mx-auto flex max-w-[1000px] flex-wrap justify-center gap-10">
+          {[
+            { n: "5-Star Rated", v: "Google Reviews" },
+            { n: "500+", v: "Moves Completed" },
+            { n: "Same-Day", v: "Quotes Available" },
+            { n: "100%", v: "Satisfaction Guarantee" },
+          ].map((stat, i) => (
+            <div key={i} className="text-center">
+              <div className="font-heading text-lg font-bold text-black-primary">
+                {stat.n}
+              </div>
+              <div className="text-[11px] font-medium text-black-primary/70">
+                {stat.v}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* WHY PANTHER */}
+      <section className="mx-auto max-w-[1000px] px-6 py-20">
+        <div className="mb-12 text-center">
+          <div className="section-label">Why Panther Moving</div>
+          <h2 className="section-heading">
+            Moving Done <span className="text-gold">Right</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          {[
+            {
+              icon: <ShieldIcon />,
+              t: "Licensed & Insured",
+              d: "Your belongings are fully protected. We carry comprehensive insurance so you can relax knowing everything is covered.",
+            },
+            {
+              icon: <ClockIcon />,
+              t: "On Time, Every Time",
+              d: "We show up when we say we will. No waiting around, no delays. Your time matters and we respect it.",
+            },
+            {
+              icon: <HandIcon />,
+              t: "Careful With Your Stuff",
+              d: "We treat your belongings like they're our own. Professional packing, padding, and handling from start to finish.",
+            },
+          ].map((feature, i) => (
+            <div
+              key={i}
+              className="rounded-lg border border-[#eee] bg-white p-8 transition-all hover:shadow-lg"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <div className="mb-3.5">{feature.icon}</div>
+              <h3 className="mb-2 font-heading text-lg font-semibold tracking-[0.5px] uppercase">
+                {feature.t}
+              </h3>
+              <p className="text-sm font-light leading-[1.75] text-grey">
+                {feature.d}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="bg-off-white px-6 py-20">
+        <div className="mx-auto max-w-[1000px]">
+          <div className="mb-12 text-center">
+            <div className="section-label">Our Services</div>
+            <h2 className="section-heading">
+              What We <span className="text-gold">Move</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+            {[
+              {
+                icon: <HomeIcon />,
+                t: "Residential Moves",
+                d: "Houses, condos, townhomes — any size. We handle packing, loading, transport, and setup.",
+              },
+              {
+                icon: <ApartmentIcon />,
+                t: "Apartment Moves",
+                d: "Narrow hallways, stairs, elevators — no problem. We handle apartment moves quickly and with care.",
+              },
+              {
+                icon: <BuildingIcon />,
+                t: "Commercial Moves",
+                d: "Minimize downtime with efficient office and retail relocation services.",
+              },
+              {
+                icon: <BoxIcon />,
+                t: "Packing & Unpacking",
+                d: "We carefully pack your items and unpack them at your new destination.",
+              },
+              {
+                icon: <TruckIcon />,
+                t: "Loading & Unloading",
+                d: "Already have a truck? We'll do all the heavy lifting for you.",
+              },
+              {
+                icon: <SofaIcon />,
+                t: "Furniture Assembly",
+                d: "We disassemble, move, and reassemble your furniture with the right tools.",
+              },
+            ].map((service, i) => (
+              <Link
+                key={i}
+                href="/services"
+                className="block rounded-lg border border-[#eee] bg-white p-6 no-underline transition-all hover:shadow-lg"
+              >
+                <div className="mb-3">{service.icon}</div>
+                <h3 className="mb-1.5 font-heading text-base font-semibold tracking-[0.5px] uppercase text-black-primary">
+                  {service.t}
+                </h3>
+                <p className="text-[13px] font-light leading-[1.7] text-grey">
+                  {service.d}
+                </p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link href="/services" className="btn-black">
+              View All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="mx-auto max-w-[1000px] px-6 py-20">
+        <div className="mb-12 text-center">
+          <div className="section-label">How It Works</div>
+          <h2 className="section-heading">
+            Three Simple <span className="text-gold">Steps</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          {[
+            {
+              n: "01",
+              t: "Get a Free Quote",
+              d: "Fill out our quick form or give us a call. No hidden fees, no surprises — just an honest estimate.",
+              icon: <QuoteIcon />,
+            },
+            {
+              n: "02",
+              t: "We Handle the Heavy Lifting",
+              d: "Our crew shows up on time, carefully packs, loads, and transports everything with care.",
+              icon: <TruckIcon />,
+            },
+            {
+              n: "03",
+              t: "You Settle In",
+              d: "We unload, assemble furniture if needed, and make sure you're happy before we leave.",
+              icon: <HomeIcon />,
+            },
+          ].map((step, i) => (
+            <div key={i} className="p-8 text-center">
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded bg-black-primary">
+                <span className="font-heading text-[22px] font-bold text-gold">
+                  {step.n}
+                </span>
+              </div>
+              <div className="mb-3 flex justify-center">{step.icon}</div>
+              <h3 className="mb-2 font-heading text-[17px] font-semibold tracking-[0.5px] uppercase">
+                {step.t}
+              </h3>
+              <p className="text-sm font-light leading-[1.7] text-grey">
+                {step.d}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="relative bg-black-primary px-6 py-[72px]">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gold" />
+        <div className="mx-auto max-w-[1000px]">
+          <div className="mb-10 text-center">
+            <div className="section-label">Testimonials</div>
+            <h2 className="section-heading text-white">
+              Tampa Trusts <span className="text-gold">Panther</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {[
+              {
+                n: "Marcus T.",
+                q: "Showed up on time, moved everything without a scratch, and were done in half the time I expected. Best movers in Tampa.",
+              },
+              {
+                n: "Jennifer R.",
+                q: "I was dreading my apartment move but these guys made it so easy. Careful with all my stuff and super friendly. Highly recommend.",
+              },
+              {
+                n: "David K.",
+                q: "Used Panther for our office relocation. Professional, efficient, and affordable. Will definitely use again for our next move.",
+              },
+            ].map((review, i) => (
+              <div
+                key={i}
+                className="rounded-lg border border-slate bg-black-secondary p-6"
+              >
+                <div className="mb-3 flex gap-0.5">
+                  {Array(5)
+                    .fill(0)
+                    .map((_, j) => (
+                      <StarIcon key={j} />
+                    ))}
+                </div>
+                <p className="mb-3.5 text-sm font-light italic leading-[1.75] text-grey-light">
+                  &ldquo;{review.q}&rdquo;
+                </p>
+                <div className="font-heading text-[13px] tracking-[1px] text-white">
+                  &mdash; {review.n}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE AREA */}
+      <section className="mx-auto max-w-[800px] px-6 py-16 text-center">
+        <div className="section-label">Service Area</div>
+        <h2 className="section-heading mb-4">
+          Serving All of <span className="text-gold">Tampa Bay</span>
+        </h2>
+        <p className="mb-5 text-[15px] font-light leading-[1.8] text-grey">
+          We&apos;re based in Tampa and proudly serve the entire Tampa Bay area.
+        </p>
+        <div className="flex flex-wrap justify-center gap-2.5">
+          {SITE.serviceAreas.map((city) => (
+            <span
+              key={city}
+              className="rounded border border-[#eee] bg-off-white px-4 py-2 text-[13px] font-medium text-black-primary"
             >
-              Learning
-            </a>{" "}
-            center.
+              {city}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative px-6 py-[72px] text-center bg-gradient-to-br from-black-primary to-black-secondary">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gold" />
+        <div className="mx-auto max-w-[600px]">
+          <h2 className="section-heading mb-3.5 text-white">
+            Ready to <span className="text-gold">Move?</span>
+          </h2>
+          <p className="mb-7 text-base font-light leading-[1.8] text-grey-light">
+            Get a free, no-obligation quote in minutes. We&apos;ll take care of
+            the rest.
           </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/contact" className="btn-gold">
+              Get Your Free Quote
+            </Link>
+            <a href={`tel:${SITE.phoneRaw}`} className="no-underline">
+              <span className="btn-outline">{SITE.phone}</span>
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
