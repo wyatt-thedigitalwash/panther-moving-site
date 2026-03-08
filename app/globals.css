@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-gold: #A8891A;
-  --color-gold-light: #C9AC2A;
-  --color-gold-dark: #8A6F10;
+  --color-gold: #C8AC2A;
+  --color-gold-light: #D4BA3E;
+  --color-gold-dark: #A8891A;
   --color-black-primary: #111111;
   --color-black-secondary: #1A1A1A;
   --color-black-tertiary: #222222;
