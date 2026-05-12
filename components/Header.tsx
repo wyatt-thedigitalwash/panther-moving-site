@@ -6,6 +6,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
 
+function isActive(pathname: string, href: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
+}
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +27,7 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <>
+    <header>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-3.5 transition-all duration-300 ${
           scrolled
@@ -42,18 +47,28 @@ export default function Header() {
         </Link>
 
         <ul className="hidden items-center gap-7 md:flex">
-          {NAV_LINKS.map(({ href, label }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                className={`font-heading text-[13px] font-medium tracking-[1.5px] uppercase transition-colors duration-200 ${
-                  pathname === href ? "text-gold" : "text-white hover:text-gold"
-                }`}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
+          {NAV_LINKS.map(({ href, label }) => {
+            const active = isActive(pathname, href);
+            return (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className={`group relative font-heading text-[13px] font-medium tracking-[1.5px] uppercase transition-colors duration-200 ${
+                    active ? "text-gold" : "text-white hover:text-gold"
+                  }`}
+                >
+                  {label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[2px] w-full bg-gold origin-left transition-transform duration-300 ${
+                      active
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </Link>
+              </li>
+            );
+          })}
           <li>
             <Link href="/contact" className="btn-gold">
               Free Quote
@@ -76,16 +91,23 @@ export default function Header() {
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {NAV_LINKS.map(({ href, label }) => (
-          <Link
-            key={href}
-            href={href}
-            className="border-b border-slate py-3 font-heading text-lg tracking-[2px] uppercase text-white"
-            onClick={() => setMobileOpen(false)}
-          >
-            {label}
-          </Link>
-        ))}
+        {NAV_LINKS.map(({ href, label }) => {
+          const active = isActive(pathname, href);
+          return (
+            <Link
+              key={href}
+              href={href}
+              className={`border-b border-slate py-3 font-heading text-lg tracking-[2px] uppercase transition-colors duration-200 ${
+                active
+                  ? "text-gold border-l-2 border-l-gold pl-3"
+                  : "text-white hover:text-gold/80"
+              }`}
+              onClick={() => setMobileOpen(false)}
+            >
+              {label}
+            </Link>
+          );
+        })}
         <Link
           href="/contact"
           className="mt-2 font-heading text-lg tracking-[2px] uppercase text-gold"
@@ -94,6 +116,6 @@ export default function Header() {
           Get Free Quote &rarr;
         </Link>
       </div>
-    </>
+    </header>
   );
 }

@@ -2,19 +2,24 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import ProgressIndicator from "@/components/ProgressIndicator";
 import InventoryForm from "@/components/InventoryForm";
+import { BreadcrumbSchema } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Moving Inventory Form | Complete Your Quote",
   description:
     "Complete your moving inventory to receive an accurate quote from Panther Moving. List your items room by room for the most precise estimate.",
+  alternates: { canonical: "/inventory" },
 };
 
 export default function InventoryPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{ name: "Inventory", href: "/inventory" }]} />
+
       {/* Hero */}
       <section className="relative bg-black-primary px-6 pt-36 pb-16 text-center">
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gold" />
+        <div className="hero-content">
         <div className="section-label">Step 2 of 2</div>
         <h1 className="section-heading text-white">
           Moving <span className="text-gold">Inventory</span>
@@ -23,6 +28,7 @@ export default function InventoryPage() {
           Help us understand your move so we can give you the most accurate
           quote
         </p>
+        </div>
       </section>
 
       {/* Progress Indicator */}

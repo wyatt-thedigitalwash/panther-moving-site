@@ -93,7 +93,7 @@ export async function POST(request: Request) {
     // Business notification
     await resend.emails.send({
       from: "Panther Moving <onboarding@resend.dev>",
-      to: "scottr@panthermoving.com",
+      to: ["scottr@panthermoving.com", "marcusc@panthermoving.com"],
       subject: `Inventory Form Submitted — ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SITE, NAV_LINKS } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
+import FooterNav from "@/components/FooterNav";
 
 export default function Footer() {
   return (
@@ -27,15 +28,7 @@ export default function Footer() {
             <div className="mb-2.5 font-heading text-[11px] tracking-[3px] text-gold">
               NAVIGATION
             </div>
-            {NAV_LINKS.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="mb-1.5 block text-[13px] text-grey hover:text-white transition-colors"
-              >
-                {label}
-              </Link>
-            ))}
+            <FooterNav />
           </div>
 
           {/* Contact */}
@@ -46,6 +39,7 @@ export default function Footer() {
             <a
               href={`tel:${SITE.phoneRaw}`}
               className="mb-1.5 block text-sm font-semibold text-white no-underline"
+              aria-label="Call Panther Moving at (813) 508-7860"
             >
               {SITE.phone}
             </a>
@@ -69,6 +63,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-[11px] text-grey no-underline hover:text-white transition-colors"
+              aria-label="Follow Panther Moving on Instagram (opens in new tab)"
             >
               {SITE.instagramHandle}
             </a>
@@ -77,6 +72,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-[11px] text-grey no-underline hover:text-white transition-colors"
+              aria-label="Website by The Digital Wash (opens in new tab)"
             >
               Website by The Digital Wash
             </a>

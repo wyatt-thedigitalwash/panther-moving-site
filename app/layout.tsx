@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Oswald, DM_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollRevealInit from "@/components/ScrollRevealInit";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -26,6 +27,8 @@ export const metadata: Metadata = {
   description:
     "Professional, affordable moving services across Tampa Bay. Residential, commercial, packing & more. Licensed & insured. Get a free quote today.",
   metadataBase: new URL("https://panthermoving.com"),
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -69,6 +72,7 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <ScrollRevealInit />
       </body>
     </html>
   );

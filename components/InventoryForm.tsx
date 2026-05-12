@@ -213,6 +213,7 @@ export default function InventoryForm() {
           <a
             href={`tel:${SITE.phoneRaw}`}
             className="font-semibold text-gold"
+            aria-label="Call Panther Moving at (813) 508-7860"
           >
             {SITE.phone}
           </a>

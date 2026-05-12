@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbSchema } from "@/lib/breadcrumbs";
 import {
   HomeIcon,
   ApartmentIcon,
@@ -8,11 +9,13 @@ import {
   TruckIcon,
   SofaIcon,
 } from "@/components/Icons";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Our Moving Services",
   description:
     "Residential moves, apartment moves, commercial relocations, packing, loading, and furniture assembly. Professional moving services across Tampa Bay.",
+  alternates: { canonical: "/services" },
 };
 
 const SERVICES = [
@@ -51,45 +54,52 @@ const SERVICES = [
 export default function ServicesPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{ name: "Services", href: "/services" }]} />
+
       {/* Hero */}
       <section className="relative bg-black-primary px-6 pt-36 pb-16 text-center">
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gold" />
-        <div className="section-label">What We Do</div>
-        <h1 className="section-heading text-white">
-          Our <span className="text-gold">Services</span>
-        </h1>
-        <p className="mt-2.5 text-[15px] font-light text-grey-light">
-          Professional, affordable moving services across Tampa Bay
-        </p>
+        <div className="hero-content">
+          <div className="section-label">What We Do</div>
+          <h1 className="section-heading text-white">
+            Our <span className="text-gold">Services</span>
+          </h1>
+          <p className="mt-2.5 text-[15px] font-light text-grey-light">
+            Professional, affordable moving services across Tampa Bay
+          </p>
+        </div>
       </section>
 
       {/* Service List */}
       <section className="mx-auto max-w-[900px] px-6 py-16">
         {SERVICES.map((service, i) => (
-          <div
-            key={i}
-            className={`flex gap-6 py-8 items-start ${
-              i < SERVICES.length - 1 ? "border-b border-[#eee]" : ""
-            }`}
-          >
-            <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-lg bg-off-white">
-              {service.icon}
+          <ScrollReveal key={i} delay={i * 80}>
+            <div
+              className={`flex gap-6 py-8 items-start ${
+                i < SERVICES.length - 1 ? "border-b border-[#eee]" : ""
+              }`}
+            >
+              <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-lg bg-off-white">
+                {service.icon}
+              </div>
+              <div>
+                <h3 className="mb-2 font-heading text-xl font-semibold tracking-[0.5px] uppercase">
+                  {service.t}
+                </h3>
+                <p className="text-sm font-light leading-[1.8] text-grey">
+                  {service.d}
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="mb-2 font-heading text-xl font-semibold tracking-[0.5px] uppercase">
-                {service.t}
-              </h3>
-              <p className="text-sm font-light leading-[1.8] text-grey">
-                {service.d}
-              </p>
-            </div>
-          </div>
+          </ScrollReveal>
         ))}
-        <div className="mt-10 text-center">
-          <Link href="/contact" className="btn-gold">
-            Get a Free Quote
-          </Link>
-        </div>
+        <ScrollReveal>
+          <div className="mt-10 text-center">
+            <Link href="/contact" className="btn-gold">
+              Get a Free Quote
+            </Link>
+          </div>
+        </ScrollReveal>
       </section>
     </>
   );
