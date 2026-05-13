@@ -71,8 +71,8 @@ export default function ContactForm() {
           Thank You!
         </div>
         <p className="text-sm text-grey">
-          We received your request and will get back to you shortly &mdash;
-          usually within the hour.
+          We received your request and will get back to you as soon as
+          possible.
         </p>
       </div>
     );

@@ -205,8 +205,8 @@ export default function InventoryForm() {
         </div>
         <p className="text-sm text-grey">
           Thank you for completing your moving inventory. Our team will review
-          your details and call you within 1 business hour with your guaranteed
-          quote.
+          your details and get back to you as soon as possible with your
+          guaranteed quote.
         </p>
         <p className="mt-3 text-sm text-grey">
           Questions? Call us at{" "}

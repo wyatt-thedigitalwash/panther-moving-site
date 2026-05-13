@@ -192,7 +192,7 @@ export async function POST(request: Request) {
           <div style="padding: 24px;">
             <p style="font-size: 16px; color: #333;">Hey ${name},</p>
             <p style="font-size: 15px; color: #555; line-height: 1.7;">
-              We have everything we need! Expect a call from us within 1 business hour
+              We have everything we need! We&apos;ll get back to you as soon as possible
               with your guaranteed quote.
             </p>
             <p style="font-size: 15px; color: #555; line-height: 1.7;">

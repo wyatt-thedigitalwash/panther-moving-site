@@ -97,7 +97,7 @@ export async function POST(request: Request) {
           <div style="padding: 24px;">
             <p style="font-size: 16px; color: #333;">Thanks ${name}!</p>
             <p style="font-size: 15px; color: #555; line-height: 1.7;">
-              We received your quote request and will call you within 1 business hour.
+              We received your quote request and will get back to you as soon as possible.
               In the meantime, complete your moving inventory below so we can give you
               an accurate guaranteed price &mdash; no surprises on moving day.
             </p>

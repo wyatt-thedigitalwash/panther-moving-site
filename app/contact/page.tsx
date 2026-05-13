@@ -10,7 +10,7 @@ import { BreadcrumbSchema } from "@/lib/breadcrumbs";
 export const metadata: Metadata = {
   title: "Contact Us | Get a Free Moving Quote",
   description:
-    "Request a free, no-obligation moving quote from Panther Moving. Call (813) 508-7860 or fill out our quick form. We respond within the hour.",
+    "Request a free, no-obligation moving quote from Panther Moving. Call (813) 508-7860 or fill out our quick form. We'll get back to you as soon as possible.",
   alternates: { canonical: "/contact" },
 };
 
@@ -28,8 +28,8 @@ export default function ContactPage() {
             Request a <span className="text-gold">Free Quote</span>
           </h1>
           <p className="mt-2.5 text-[15px] font-light text-grey-light">
-            Fill out the form and we&apos;ll get back to you fast &mdash; usually
-            within the hour
+            Fill out the form and we&apos;ll get back to you as soon as
+            possible
           </p>
         </div>
       </section>
