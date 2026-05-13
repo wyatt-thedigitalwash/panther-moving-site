@@ -59,7 +59,7 @@ export async function POST(request: Request) {
     // Email to business owner
     await resend.emails.send({
       from: "Panther Moving <noreply@panthermoving.com>",
-      to: ["scott@panthermoving.com"],
+      to: ["scottr@panthermoving.com"],
       subject: `New Quote Request from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
