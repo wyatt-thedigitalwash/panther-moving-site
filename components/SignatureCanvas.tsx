@@ -3,7 +3,6 @@
 import {
   useRef,
   useEffect,
-  useCallback,
   forwardRef,
   useImperativeHandle,
 } from "react";
@@ -24,84 +23,63 @@ const SignatureCanvas = forwardRef<SignatureCanvasHandle, SignatureCanvasProps>(
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const isDrawing = useRef(false);
     const hasDrawn = useRef(false);
-
-    const getPos = useCallback(
-      (
-        e: MouseEvent | TouchEvent,
-      ): { x: number; y: number } | null => {
-        const canvas = canvasRef.current;
-        if (!canvas) return null;
-        const rect = canvas.getBoundingClientRect();
-        const scaleX = canvas.width / rect.width;
-        const scaleY = canvas.height / rect.height;
-
-        if ("touches" in e) {
-          const touch = e.touches[0];
-          if (!touch) return null;
-          return {
-            x: (touch.clientX - rect.left) * scaleX,
-            y: (touch.clientY - rect.top) * scaleY,
-          };
-        }
-        return {
-          x: (e.clientX - rect.left) * scaleX,
-          y: (e.clientY - rect.top) * scaleY,
-        };
-      },
-      [],
-    );
-
-    const startDraw = useCallback(
-      (e: MouseEvent | TouchEvent) => {
-        e.preventDefault();
-        isDrawing.current = true;
-        const pos = getPos(e);
-        const ctx = canvasRef.current?.getContext("2d");
-        if (ctx && pos) {
-          ctx.beginPath();
-          ctx.moveTo(pos.x, pos.y);
-        }
-      },
-      [getPos],
-    );
-
-    const draw = useCallback(
-      (e: MouseEvent | TouchEvent) => {
-        if (!isDrawing.current) return;
-        e.preventDefault();
-        const pos = getPos(e);
-        const ctx = canvasRef.current?.getContext("2d");
-        if (ctx && pos) {
-          ctx.lineTo(pos.x, pos.y);
-          ctx.stroke();
-          hasDrawn.current = true;
-        }
-      },
-      [getPos],
-    );
-
-    const endDraw = useCallback(() => {
-      if (isDrawing.current) {
-        isDrawing.current = false;
-        onDrawEnd?.();
-      }
-    }, [onDrawEnd]);
+    const onDrawEndRef = useRef(onDrawEnd);
+    onDrawEndRef.current = onDrawEnd;
 
     useEffect(() => {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
       const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * 2;
-      canvas.height = rect.height * 2;
+      const dpr = window.devicePixelRatio || 2;
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
 
       const ctx = canvas.getContext("2d");
-      if (ctx) {
-        ctx.strokeStyle = "#C9AC2A";
-        ctx.lineWidth = 3;
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-        ctx.scale(2, 2);
+      if (!ctx) return;
+
+      ctx.scale(dpr, dpr);
+      ctx.strokeStyle = "#C9AC2A";
+      ctx.lineWidth = 3;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+
+      function getPos(e: MouseEvent | TouchEvent): { x: number; y: number } | null {
+        const r = canvas!.getBoundingClientRect();
+        if ("touches" in e) {
+          const touch = e.touches[0];
+          if (!touch) return null;
+          return { x: touch.clientX - r.left, y: touch.clientY - r.top };
+        }
+        return { x: e.clientX - r.left, y: e.clientY - r.top };
+      }
+
+      function startDraw(e: MouseEvent | TouchEvent) {
+        e.preventDefault();
+        isDrawing.current = true;
+        const pos = getPos(e);
+        if (ctx && pos) {
+          ctx.beginPath();
+          ctx.moveTo(pos.x, pos.y);
+        }
+      }
+
+      function draw(e: MouseEvent | TouchEvent) {
+        if (!isDrawing.current) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        if (ctx && pos) {
+          ctx.lineTo(pos.x, pos.y);
+          ctx.stroke();
+          hasDrawn.current = true;
+        }
+      }
+
+      function endDraw() {
+        if (isDrawing.current) {
+          isDrawing.current = false;
+          onDrawEndRef.current?.();
+        }
       }
 
       canvas.addEventListener("mousedown", startDraw);
@@ -121,7 +99,7 @@ const SignatureCanvas = forwardRef<SignatureCanvasHandle, SignatureCanvasProps>(
         canvas.removeEventListener("touchmove", draw);
         canvas.removeEventListener("touchend", endDraw);
       };
-    }, [startDraw, draw, endDraw]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     useImperativeHandle(ref, () => ({
       clear: () => {

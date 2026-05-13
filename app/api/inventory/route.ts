@@ -90,11 +90,24 @@ export async function POST(request: Request) {
       { label: "Reassembly Items", value: s(body.reassemblyItems) },
     ].filter((r) => r.value);
 
+    // Extract signature image from data URL for inline attachment
+    const sigParts = body.signature.match(/^data:image\/(\w+);base64,(.+)$/);
+    const sigBuffer = sigParts ? Buffer.from(sigParts[2], "base64") : null;
+
     // Business notification
     await resend.emails.send({
-      from: "Panther Moving <onboarding@resend.dev>",
-      to: ["scottr@panthermoving.com", "marcusc@panthermoving.com"],
+      from: "Panther Moving <noreply@panthermoving.com>",
+      to: ["scott@panthermoving.com"],
       subject: `Inventory Form Submitted — ${name}`,
+      attachments: sigBuffer
+        ? [
+            {
+              filename: "signature.png",
+              content: sigBuffer,
+              content_type: "image/png",
+            },
+          ]
+        : [],
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: #111111; padding: 24px; text-align: center;">
@@ -157,8 +170,8 @@ export async function POST(request: Request) {
             }
 
             <h2 style="font-size: 16px; color: #C9AC2A; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 1px;">Signature</h2>
-            <div style="background: #1A1A1A; padding: 12px; border-radius: 4px; text-align: center;">
-              <img src="${body.signature}" alt="Customer signature" style="max-width: 100%; height: auto;" />
+            <div style="background: #f0f0f0; padding: 12px; border-radius: 4px; text-align: center;">
+              <p style="font-size: 13px; color: #555; margin: 0;">Customer signature attached as signature.png</p>
             </div>
             <p style="font-size: 12px; color: #999; margin-top: 8px;">Customer agreed to pricing disclaimer and signed electronically.</p>
           </div>
@@ -168,7 +181,7 @@ export async function POST(request: Request) {
 
     // Auto-reply to customer
     await resend.emails.send({
-      from: "Panther Moving <onboarding@resend.dev>",
+      from: "Panther Moving <noreply@panthermoving.com>",
       to: email,
       replyTo: "scottr@panthermoving.com",
       subject: `Inventory Received — ${name}`,

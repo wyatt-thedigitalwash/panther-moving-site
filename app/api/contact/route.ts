@@ -58,8 +58,8 @@ export async function POST(request: Request) {
 
     // Email to business owner
     await resend.emails.send({
-      from: "Panther Moving <onboarding@resend.dev>",
-      to: ["scottr@panthermoving.com", "marcusc@panthermoving.com"],
+      from: "Panther Moving <noreply@panthermoving.com>",
+      to: ["scott@panthermoving.com"],
       subject: `New Quote Request from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -85,7 +85,7 @@ export async function POST(request: Request) {
     const inventoryUrl = `https://panthermoving.com/inventory?name=${encodeURIComponent(body.name)}&phone=${encodeURIComponent(body.phone)}&email=${encodeURIComponent(body.email)}&moveDate=${encodeURIComponent(body.moveDate)}&pickupZip=${encodeURIComponent(body.pickupZip)}&deliveryZip=${encodeURIComponent(body.deliveryZip)}`;
 
     await resend.emails.send({
-      from: "Panther Moving <onboarding@resend.dev>",
+      from: "Panther Moving <noreply@panthermoving.com>",
       to: email,
       replyTo: "scottr@panthermoving.com",
       subject: `Thanks ${name}! We received your quote request`,
