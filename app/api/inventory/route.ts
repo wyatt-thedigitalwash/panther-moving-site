@@ -92,19 +92,18 @@ export async function POST(request: Request) {
 
     // Extract signature image from data URL for inline attachment
     const sigParts = body.signature.match(/^data:image\/(\w+);base64,(.+)$/);
-    const sigBuffer = sigParts ? Buffer.from(sigParts[2], "base64") : null;
+    const sigBase64 = sigParts ? sigParts[2] : null;
 
     // Business notification
     await resend.emails.send({
       from: "Panther Moving <noreply@panthermoving.com>",
       to: ["scott@panthermoving.com"],
       subject: `Inventory Form Submitted — ${name}`,
-      attachments: sigBuffer
+      attachments: sigBase64
         ? [
             {
               filename: "signature.png",
-              content: sigBuffer,
-              content_type: "image/png",
+              content: sigBase64,
             },
           ]
         : [],
