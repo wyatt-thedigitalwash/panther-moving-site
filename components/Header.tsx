@@ -80,6 +80,7 @@ export default function Header() {
           className="block text-2xl text-white bg-transparent border-none cursor-pointer md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? "\u2715" : "\u2630"}
         </button>

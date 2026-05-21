@@ -20,8 +20,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { BreadcrumbSchema } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = {
-  title:
-    "Tampa Movers | Licensed & Insured Local Moving Company | Panther Moving",
+  title: "Tampa Movers | Licensed & Insured Local Moving Company",
   description:
     "Looking for the best movers in Tampa? Panther Moving is a licensed & insured Tampa moving company offering residential, commercial, and apartment moves. Get a free quote today.",
   alternates: { canonical: "/blog/tampa-movers" },

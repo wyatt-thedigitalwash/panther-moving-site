@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { BreadcrumbSchema } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Blog & Guides | Panther Moving",
+  title: "Blog & Guides",
   description:
     "Moving guides, tips, and resources from Panther Moving. Everything you need to plan your Tampa Bay move.",
   alternates: { canonical: "/blog" },

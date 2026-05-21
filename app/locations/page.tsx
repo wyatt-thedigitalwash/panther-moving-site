@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { BreadcrumbSchema } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Service Areas | Panther Moving",
+  title: "Service Areas",
   description:
     "Panther Moving serves Tampa, St. Petersburg, Clearwater, and more. Find local movers near you.",
   alternates: { canonical: "/locations" },

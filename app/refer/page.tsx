@@ -6,7 +6,7 @@ import ReferClientForm from "@/components/ReferClientForm";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Refer a Client | Panther Moving Referral Program",
+  title: "Refer a Client | Referral Program",
   description:
     "Submit a client referral to Panther Moving. We'll handle the move, you earn the referral bonus.",
   alternates: { canonical: "/refer" },

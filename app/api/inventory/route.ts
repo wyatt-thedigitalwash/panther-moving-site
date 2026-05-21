@@ -97,7 +97,7 @@ export async function POST(request: Request) {
     // Business notification
     await resend.emails.send({
       from: "Panther Moving <noreply@panthermoving.com>",
-      to: ["scottr@panthermoving.com"],
+      to: ["scottr@panthermoving.com", "marcusc@panthermoving.com"],
       subject: `Inventory Form Submitted — ${name}`,
       attachments: sigBase64
         ? [

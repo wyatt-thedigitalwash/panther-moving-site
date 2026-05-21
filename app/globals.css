@@ -132,7 +132,6 @@ body {
   font-family: var(--font-body);
   background: #ffffff;
   transition: border-color 0.2s;
-  outline: none;
 }
 .form-input:focus {
   border-color: var(--color-gold);

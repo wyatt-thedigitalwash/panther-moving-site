@@ -83,9 +83,9 @@ export default function ServicesPage() {
                 {service.icon}
               </div>
               <div>
-                <h3 className="mb-2 font-heading text-xl font-semibold tracking-[0.5px] uppercase">
+                <h2 className="mb-2 font-heading text-xl font-semibold tracking-[0.5px] uppercase">
                   {service.t}
-                </h3>
+                </h2>
                 <p className="text-sm font-light leading-[1.8] text-grey">
                   {service.d}
                 </p>

@@ -98,101 +98,117 @@ export default function ContactForm() {
       </div>
 
       <div className="mb-3.5">
-        <label className="form-label">FULL NAME</label>
-        <input
-          type="text"
-          required
-          placeholder="Your name"
-          value={form.name}
-          onChange={update("name")}
-          className="form-input"
-        />
+        <label>
+          <span className="form-label">FULL NAME</span>
+          <input
+            type="text"
+            required
+            placeholder="Your name"
+            value={form.name}
+            onChange={update("name")}
+            className="form-input"
+          />
+        </label>
       </div>
 
       <div className="mb-3.5">
-        <label className="form-label">PHONE NUMBER</label>
-        <input
-          type="tel"
-          required
-          placeholder="(555) 555-5555"
-          value={form.phone}
-          onChange={update("phone")}
-          className="form-input"
-        />
+        <label>
+          <span className="form-label">PHONE NUMBER</span>
+          <input
+            type="tel"
+            required
+            placeholder="(555) 555-5555"
+            value={form.phone}
+            onChange={update("phone")}
+            className="form-input"
+          />
+        </label>
       </div>
 
       <div className="mb-3.5">
-        <label className="form-label">EMAIL ADDRESS</label>
-        <input
-          type="email"
-          required
-          placeholder="you@example.com"
-          value={form.email}
-          onChange={update("email")}
-          className="form-input"
-        />
+        <label>
+          <span className="form-label">EMAIL ADDRESS</span>
+          <input
+            type="email"
+            required
+            placeholder="you@example.com"
+            value={form.email}
+            onChange={update("email")}
+            className="form-input"
+          />
+        </label>
       </div>
 
       <div className="mb-3.5">
-        <label className="form-label">MOVE DATE</label>
-        <input
-          type="date"
-          required
-          value={form.moveDate}
-          onChange={update("moveDate")}
-          className="form-input"
-        />
+        <label>
+          <span className="form-label">MOVE DATE</span>
+          <input
+            type="date"
+            required
+            value={form.moveDate}
+            onChange={update("moveDate")}
+            className="form-input"
+          />
+        </label>
       </div>
 
       <div className="mb-3.5">
-        <label className="form-label">NUMBER OF ROOMS</label>
-        <select
-          required
-          value={form.rooms}
-          onChange={update("rooms")}
-          className="form-input"
-        >
-          <option value="">Select...</option>
-          {ROOM_OPTIONS.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
+        <label>
+          <span className="form-label">NUMBER OF ROOMS</span>
+          <select
+            required
+            value={form.rooms}
+            onChange={update("rooms")}
+            className="form-input"
+          >
+            <option value="">Select...</option>
+            {ROOM_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
 
       <div className="mb-3.5">
-        <label className="form-label">CITY</label>
-        <input
-          type="text"
-          required
-          placeholder="Tampa"
-          value={form.city}
-          onChange={update("city")}
-          className="form-input"
-        />
+        <label>
+          <span className="form-label">CITY</span>
+          <input
+            type="text"
+            required
+            placeholder="Tampa"
+            value={form.city}
+            onChange={update("city")}
+            className="form-input"
+          />
+        </label>
       </div>
 
       <div className="mb-3.5">
-        <label className="form-label">PICKUP LOCATION (OPTIONAL)</label>
-        <input
-          type="text"
-          placeholder="Address or area"
-          value={form.pickup}
-          onChange={update("pickup")}
-          className="form-input"
-        />
+        <label>
+          <span className="form-label">PICKUP LOCATION (OPTIONAL)</span>
+          <input
+            type="text"
+            placeholder="Address or area"
+            value={form.pickup}
+            onChange={update("pickup")}
+            className="form-input"
+          />
+        </label>
       </div>
 
       <div className="mb-3.5">
-        <label className="form-label">DELIVERY LOCATION (OPTIONAL)</label>
-        <input
-          type="text"
-          placeholder="Address or area"
-          value={form.delivery}
-          onChange={update("delivery")}
-          className="form-input"
-        />
+        <label>
+          <span className="form-label">DELIVERY LOCATION (OPTIONAL)</span>
+          <input
+            type="text"
+            placeholder="Address or area"
+            value={form.delivery}
+            onChange={update("delivery")}
+            className="form-input"
+          />
+        </label>
       </div>
 
       <button

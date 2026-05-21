@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/inventory`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/locations`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${baseUrl}/referral-program`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 
   const locationPages: MetadataRoute.Sitemap = LOCATIONS.map((loc) => ({

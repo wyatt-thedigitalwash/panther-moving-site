@@ -68,10 +68,12 @@ export default function FAQAccordion() {
       {FAQS.map((faq, i) => {
         const isOpen = open === i;
         const panelId = `faq-panel-${i}`;
+        const buttonId = `faq-btn-${i}`;
 
         return (
           <div key={i} className="border-b border-[#eee]">
             <button
+              id={buttonId}
               onClick={() => setOpen(isOpen ? null : i)}
               className="flex w-full items-center justify-between bg-transparent border-none cursor-pointer py-5 text-left"
               aria-expanded={isOpen}
@@ -87,6 +89,7 @@ export default function FAQAccordion() {
             <div
               id={panelId}
               role="region"
+              aria-labelledby={buttonId}
               className="grid transition-[grid-template-rows] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
               style={{
                 gridTemplateRows: isOpen ? "1fr" : "0fr",

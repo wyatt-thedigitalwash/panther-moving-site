@@ -7,7 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SmoothScrollLink from "@/components/SmoothScrollLink";
 
 export const metadata: Metadata = {
-  title: "Referral Partner Program | Panther Moving",
+  title: "Referral Partner Program",
   description:
     "Join Panther Moving's referral partner program. Send us your clients, earn a bonus on every completed move. Realtors, property managers, and businesses welcome.",
   alternates: { canonical: "/referral-program" },

@@ -17,11 +17,13 @@ export default function FormField({
 }: FormFieldProps) {
   return (
     <div className={className}>
-      <label className="form-label">
-        {label}
-        {required && <span className="ml-0.5 text-red-500">*</span>}
+      <label>
+        <span className="form-label">
+          {label}
+          {required && <span className="ml-0.5 text-red-500">*</span>}
+        </span>
+        {children}
       </label>
-      {children}
       {error && (
         <p className="mt-1 text-xs font-medium text-red-500">{error}</p>
       )}

@@ -361,6 +361,7 @@ export default function InventoryForm() {
           <button
             type="button"
             role="switch"
+            aria-label="Stairs at Pickup"
             aria-checked={form.stairsPickup}
             onClick={() =>
               setForm((prev) => ({
@@ -407,6 +408,7 @@ export default function InventoryForm() {
           <button
             type="button"
             role="switch"
+            aria-label="Stairs at Delivery"
             aria-checked={form.stairsDelivery}
             onClick={() =>
               setForm((prev) => ({
@@ -453,6 +455,7 @@ export default function InventoryForm() {
           <button
             type="button"
             role="switch"
+            aria-label="Elevator Available"
             aria-checked={form.elevator}
             onClick={() =>
               setForm((prev) => ({ ...prev, elevator: !prev.elevator }))

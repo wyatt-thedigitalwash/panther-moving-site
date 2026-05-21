@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!location) return {};
 
   return {
-    title: location.metaTitle,
+    title: { absolute: location.metaTitle },
     description: location.metaDescription,
     alternates: { canonical: `/locations/${slug}` },
   };
@@ -71,6 +71,7 @@ export default async function LocationPage({ params }: Props) {
           src={location.image}
           alt={`Panther Moving serving ${location.name}`}
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

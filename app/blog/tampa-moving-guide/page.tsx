@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { BreadcrumbSchema } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Tampa Moving Guide: Costs, Neighborhoods & Tips | Panther Moving",
+  title: "Tampa Moving Guide: Costs, Neighborhoods & Tips",
   description:
     "Everything you need to know about moving to Tampa. Explore neighborhoods, understand moving costs, get a moving day checklist, and learn when to move for the best rates.",
   alternates: { canonical: "/blog/tampa-moving-guide" },

@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   title: "Panther Moving | Tampa's Trusted Local Movers",
   description:
     "Professional, affordable moving services across Tampa Bay. Residential, apartment, commercial moves, packing & more. Licensed & insured. Get a free quote today.",
+  alternates: { canonical: "/" },
 };
 
 function LocalBusinessSchema() {
@@ -109,6 +110,7 @@ export default function HomePage() {
           src="/assets/panther-moving-boxing.webp"
           alt="Panther Moving team packing boxes for a move"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
