@@ -29,6 +29,12 @@ export default function Footer() {
               NAVIGATION
             </div>
             <FooterNav />
+            <Link
+              href="/referral-program"
+              className="mb-1.5 block text-[13px] text-grey transition-colors duration-200 hover:text-gold"
+            >
+              Referral Program
+            </Link>
           </div>
 
           {/* Contact */}

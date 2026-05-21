@@ -16,9 +16,13 @@
   --font-body: var(--font-dm-sans), "DM Sans", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Smooth scroll only for in-page anchor targets, not Next.js page navigations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: auto;
+  }
 }
+
 
 body {
   font-family: var(--font-body);
