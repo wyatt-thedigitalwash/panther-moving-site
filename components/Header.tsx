@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, SITE } from "@/lib/constants";
 
 function isActive(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
@@ -70,9 +70,14 @@ export default function Header() {
             );
           })}
           <li>
-            <Link href="/contact" className="btn-gold">
+            <a
+              href={SITE.quoteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold"
+            >
               Free Quote
-            </Link>
+            </a>
           </li>
         </ul>
 
@@ -109,13 +114,15 @@ export default function Header() {
             </Link>
           );
         })}
-        <Link
-          href="/contact"
+        <a
+          href={SITE.quoteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-2 font-heading text-lg tracking-[2px] uppercase text-gold"
           onClick={() => setMobileOpen(false)}
         >
           Get Free Quote &rarr;
-        </Link>
+        </a>
       </div>
     </header>
   );
