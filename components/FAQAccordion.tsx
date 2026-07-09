@@ -9,7 +9,7 @@ const FAQS = [
   },
   {
     q: "How do I get a quote for my move?",
-    a: "Simply fill out our online form or give us a call at (813) 508-7860. We'll provide a fast, free estimate based on your moving details. No obligations, no pressure.",
+    a: "Simply fill out our online form or give us a call at (813) 867-4661. We'll provide a fast, free estimate based on your moving details. No obligations, no pressure.",
   },
   {
     q: "Do you offer packing and unpacking services?",

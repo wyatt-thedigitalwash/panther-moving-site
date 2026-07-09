@@ -1,13 +1,16 @@
 export const SITE = {
   name: "Panther Moving",
   tagline: "Stress-Free Moves. Guaranteed.",
-  phone: "(813) 508-7860",
-  phoneRaw: "8135087860",
+  phone: "(813) 867-4661",
+  phoneRaw: "8138674661",
   email: "scottr@panthermoving.com",
   address: "2107 W Platt St, Tampa, FL",
   city: "Tampa",
   state: "FL",
   url: "https://panthermoving.com",
+  // Jobber public request form — where all quote requests are collected
+  quoteUrl:
+    "https://clienthub.getjobber.com/hubs/35badd86-608d-4659-8994-a03e41a6cc72/public/requests/4956282/new",
   instagram: "https://www.instagram.com/panthermoving",
   instagramHandle: "@panthermoving",
   serviceAreas: [

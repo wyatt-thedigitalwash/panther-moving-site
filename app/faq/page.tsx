@@ -19,7 +19,7 @@ const FAQ_SCHEMA_ITEMS = [
   },
   {
     q: "How do I get a quote for my move?",
-    a: "Simply fill out our online form or give us a call at (813) 508-7860. We'll provide a fast, free estimate based on your moving details. No obligations, no pressure.",
+    a: "Simply fill out our online form or give us a call at (813) 867-4661. We'll provide a fast, free estimate based on your moving details. No obligations, no pressure.",
   },
   {
     q: "Do you offer packing and unpacking services?",
@@ -101,7 +101,7 @@ export default function FAQPage() {
               <Link href="/contact" className="btn-gold">
                 Contact Us
               </Link>
-              <a href={`tel:${SITE.phoneRaw}`} className="no-underline" aria-label="Call Panther Moving at (813) 508-7860">
+              <a href={`tel:${SITE.phoneRaw}`} className="no-underline" aria-label="Call Panther Moving at (813) 867-4661">
                 <span className="btn-black">{SITE.phone}</span>
               </a>
             </div>

@@ -111,12 +111,12 @@ export async function POST(request: Request) {
             </div>
             <p style="font-size: 15px; color: #555; line-height: 1.7;">
               If you need immediate assistance, feel free to call us at
-              <a href="tel:8135087860" style="color: #C9AC2A; font-weight: bold;">(813) 508-7860</a>.
+              <a href="tel:8138674661" style="color: #C9AC2A; font-weight: bold;">(813) 867-4661</a>.
             </p>
             <p style="font-size: 15px; color: #333; font-weight: 600;">&mdash; The Panther Moving Team</p>
           </div>
           <div style="background: #f5f5f5; padding: 16px; text-align: center; font-size: 12px; color: #999;">
-            Panther Moving &middot; 2107 W Platt St, Tampa, FL &middot; (813) 508-7860
+            Panther Moving &middot; 2107 W Platt St, Tampa, FL &middot; (813) 867-4661
           </div>
         </div>
       `,

@@ -60,7 +60,7 @@ export default function ReferPage() {
             <a
               href={`tel:${SITE.phoneRaw}`}
               className="btn-gold inline-flex items-center gap-2"
-              aria-label="Call Panther Moving at (813) 508-7860"
+              aria-label="Call Panther Moving at (813) 867-4661"
             >
               <PhoneIcon color="#111111" /> {SITE.phone}
             </a>

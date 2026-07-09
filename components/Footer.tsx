@@ -45,7 +45,7 @@ export default function Footer() {
             <a
               href={`tel:${SITE.phoneRaw}`}
               className="mb-1.5 block text-sm font-semibold text-white no-underline"
-              aria-label="Call Panther Moving at (813) 508-7860"
+              aria-label="Call Panther Moving at (813) 867-4661"
             >
               {SITE.phone}
             </a>
@@ -64,6 +64,12 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </span>
           <div className="flex items-center gap-4">
+            <Link
+              href="/privacy-policy"
+              className="text-[11px] text-grey no-underline hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
             <a
               href={SITE.instagram}
               target="_blank"

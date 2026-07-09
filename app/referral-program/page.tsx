@@ -127,7 +127,7 @@ export default function ReferralProgramPage() {
             <a
               href={`tel:${SITE.phoneRaw}`}
               className="no-underline"
-              aria-label="Call Panther Moving at (813) 508-7860"
+              aria-label="Call Panther Moving at (813) 867-4661"
             >
               <span className="btn-outline">
                 <PhoneIcon /> {SITE.phone}
@@ -316,7 +316,7 @@ export default function ReferralProgramPage() {
               <a
                 href={`tel:${SITE.phoneRaw}`}
                 className="btn-gold"
-                aria-label="Call Panther Moving at (813) 508-7860"
+                aria-label="Call Panther Moving at (813) 867-4661"
               >
                 {SITE.phone}
               </a>

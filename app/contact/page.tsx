@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { SITE } from "@/lib/constants";
 import { PhoneIcon } from "@/components/Icons";
-import QuoteForm from "@/components/QuoteForm";
-import ProgressIndicator from "@/components/ProgressIndicator";
+import QuoteCTA from "@/components/QuoteCTA";
 import ScrollReveal from "@/components/ScrollReveal";
 import { BreadcrumbSchema } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Contact Us | Get a Free Moving Quote",
   description:
-    "Request a free, no-obligation moving quote from Panther Moving. Call (813) 508-7860 or fill out our quick form. We'll get back to you as soon as possible.",
+    "Request a free, no-obligation moving quote from Panther Moving. Call (813) 867-4661 or request a quote online. We'll get back to you as soon as possible.",
   alternates: { canonical: "/contact" },
 };
 
@@ -28,17 +27,14 @@ export default function ContactPage() {
             Request a <span className="text-gold">Free Quote</span>
           </h1>
           <p className="mt-2.5 text-[15px] font-light text-grey-light">
-            Fill out the form and we&apos;ll get back to you as soon as
+            Request your free quote and we&apos;ll get back to you as soon as
             possible
           </p>
         </div>
       </section>
 
-      {/* Progress Indicator */}
-      <ProgressIndicator currentStep={1} />
-
       {/* Contact Content */}
-      <section className="mx-auto max-w-[1000px] px-6 pt-4 pb-20">
+      <section className="mx-auto max-w-[1000px] px-6 pt-12 pb-20">
         <div className="flex flex-col gap-10 md:grid md:grid-cols-2 md:items-start">
           {/* Contact Info — below form on mobile, left on desktop */}
           <ScrollReveal direction="right" className="order-2 md:order-1">
@@ -55,7 +51,7 @@ export default function ContactPage() {
                   <a
                     href={`tel:${SITE.phoneRaw}`}
                     className="flex items-center gap-2 text-[15px] font-medium text-black-primary no-underline"
-                    aria-label="Call Panther Moving at (813) 508-7860"
+                    aria-label="Call Panther Moving at (813) 867-4661"
                   >
                     <PhoneIcon color="#C9AC2A" />
                     {SITE.phone}
@@ -110,9 +106,9 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          {/* Form — first on mobile, right on desktop */}
+          {/* Quote CTA — first on mobile, right on desktop */}
           <ScrollReveal className="order-1 md:order-2">
-            <QuoteForm />
+            <QuoteCTA />
           </ScrollReveal>
         </div>
       </section>

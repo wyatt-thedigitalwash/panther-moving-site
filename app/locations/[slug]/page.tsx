@@ -97,7 +97,7 @@ export default async function LocationPage({ params }: Props) {
               <Link href="/contact" className="btn-gold">
                 Get Your Free Quote
               </Link>
-              <a href={`tel:${SITE.phoneRaw}`} className="no-underline" aria-label="Call Panther Moving at (813) 508-7860">
+              <a href={`tel:${SITE.phoneRaw}`} className="no-underline" aria-label="Call Panther Moving at (813) 867-4661">
                 <span className="btn-outline">
                   <PhoneIcon /> {SITE.phone}
                 </span>
@@ -247,7 +247,7 @@ export default async function LocationPage({ params }: Props) {
               <Link href="/contact" className="btn-gold">
                 Get Your Free Quote
               </Link>
-              <a href={`tel:${SITE.phoneRaw}`} className="no-underline" aria-label="Call Panther Moving at (813) 508-7860">
+              <a href={`tel:${SITE.phoneRaw}`} className="no-underline" aria-label="Call Panther Moving at (813) 867-4661">
                 <span className="btn-outline">{SITE.phone}</span>
               </a>
             </div>
