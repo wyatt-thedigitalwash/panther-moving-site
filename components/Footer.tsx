@@ -70,6 +70,12 @@ export default function Footer() {
             >
               Privacy Policy
             </Link>
+            <Link
+              href="/terms-and-conditions"
+              className="text-[11px] text-grey no-underline hover:text-white transition-colors"
+            >
+              Terms &amp; Conditions
+            </Link>
             <a
               href={SITE.instagram}
               target="_blank"

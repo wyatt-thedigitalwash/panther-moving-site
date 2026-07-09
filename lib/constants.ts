@@ -3,7 +3,7 @@ export const SITE = {
   tagline: "Stress-Free Moves. Guaranteed.",
   phone: "(813) 867-4661",
   phoneRaw: "8138674661",
-  email: "scottr@panthermoving.com",
+  email: "admin@panthermoving.com",
   address: "2107 W Platt St, Tampa, FL",
   city: "Tampa",
   state: "FL",

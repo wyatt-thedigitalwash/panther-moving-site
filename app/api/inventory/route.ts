@@ -97,7 +97,7 @@ export async function POST(request: Request) {
     // Business notification
     await resend.emails.send({
       from: "Panther Moving <noreply@panthermoving.com>",
-      to: ["scottr@panthermoving.com", "marcusc@panthermoving.com"],
+      to: ["admin@panthermoving.com", "robhall@panthermoving.com", "scottr@panthermoving.com"],
       subject: `Inventory Form Submitted — ${name}`,
       attachments: sigBase64
         ? [
@@ -182,7 +182,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: "Panther Moving <noreply@panthermoving.com>",
       to: email,
-      replyTo: "scottr@panthermoving.com",
+      replyTo: "admin@panthermoving.com",
       subject: `Inventory Received — ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
