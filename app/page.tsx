@@ -393,13 +393,10 @@ export default function HomePage() {
             Tablet (sm): 2 columns
             Mobile: 1 column — portraits get h-80, landscapes get h-56
           */}
-          <div
-            className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-            style={{ gridAutoRows: "minmax(0, 1fr)" }}
-          >
+          <div className="grid gap-4 grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:h-[500px]">
             {/* Portrait — team photo: col 1, rows 1-2 */}
             <ScrollReveal className="lg:row-span-2">
-              <div className="relative h-80 sm:h-72 lg:h-full overflow-hidden rounded-lg">
+              <div className="relative aspect-[3/4] sm:aspect-auto sm:h-72 lg:h-full overflow-hidden rounded-lg">
                 <Image
                   src="/assets/panther-moving-team-with-customer.webp"
                   alt="Panther Moving crew with a happy customer family after completing a move"
@@ -411,7 +408,7 @@ export default function HomePage() {
             </ScrollReveal>
             {/* Landscape — loading truck: col 2, row 1 */}
             <ScrollReveal delay={100}>
-              <div className="relative h-56 sm:h-72 lg:h-full overflow-hidden rounded-lg">
+              <div className="relative aspect-[3/4] sm:aspect-auto sm:h-72 lg:h-full overflow-hidden rounded-lg">
                 <Image
                   src="/assets/mover-loading-truck.webp"
                   alt="Panther Moving crew member loading wrapped furniture onto the truck"
@@ -423,7 +420,7 @@ export default function HomePage() {
             </ScrollReveal>
             {/* Landscape — carrying furniture: col 3, row 1 */}
             <ScrollReveal delay={200}>
-              <div className="relative h-56 sm:h-72 lg:h-full overflow-hidden rounded-lg">
+              <div className="relative aspect-[3/4] sm:aspect-auto sm:h-72 lg:h-full overflow-hidden rounded-lg">
                 <Image
                   src="/assets/mover-carrying-furniture.webp"
                   alt="Panther Moving crew member carrying furniture wrapped in a protective blanket"
@@ -435,7 +432,7 @@ export default function HomePage() {
             </ScrollReveal>
             {/* Portrait — bikes: col 4, rows 1-2 */}
             <ScrollReveal delay={300} className="lg:row-span-2">
-              <div className="relative h-80 sm:h-72 lg:h-full overflow-hidden rounded-lg">
+              <div className="relative aspect-[3/4] sm:aspect-auto sm:h-72 lg:h-full overflow-hidden rounded-lg">
                 <Image
                   src="/assets/mover-carrying-bikes.webp"
                   alt="Panther Moving crew member carrying bikes during a residential move"
@@ -447,7 +444,7 @@ export default function HomePage() {
             </ScrollReveal>
             {/* Landscape — crew at truck: col 2, row 2 */}
             <ScrollReveal delay={400}>
-              <div className="relative h-56 sm:h-72 lg:h-full overflow-hidden rounded-lg">
+              <div className="relative aspect-[3/4] sm:aspect-auto sm:h-72 lg:h-full overflow-hidden rounded-lg">
                 <Image
                   src="/assets/panther-moving-crew-at-truck.webp"
                   alt="Panther Moving crew standing in front of the moving truck ready for a job"
@@ -459,7 +456,7 @@ export default function HomePage() {
             </ScrollReveal>
             {/* Near-square — secured boxes: col 3, row 2 */}
             <ScrollReveal delay={500}>
-              <div className="relative h-56 sm:h-72 lg:h-full overflow-hidden rounded-lg">
+              <div className="relative aspect-[3/4] sm:aspect-auto sm:h-72 lg:h-full overflow-hidden rounded-lg">
                 <Image
                   src="/assets/secured-boxes-in-truck.webp"
                   alt="Shrink-wrapped and secured boxes ready for a safe move"
