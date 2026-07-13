@@ -104,34 +104,99 @@ export default function TermsAndConditionsPage() {
             </p>
           </Block>
 
-          <Block title="SMS Communications">
-            <p>
-              By voluntarily providing your mobile phone number and opting in, you consent to
-              receive conversational and informational SMS messages from Panther Moving. These
-              messages may include:
-            </p>
-            <List
-              items={[
-                "Quote follow-up",
-                "Appointment confirmations",
-                "Scheduling reminders",
-                "Dispatch notifications",
-                "Customer service communications",
-              ]}
-            />
-            <p>
-              Message frequency varies. Message and data rates may apply. Reply STOP at any
-              time to unsubscribe. Reply HELP for assistance. Consent to receive text messages
-              is not a condition of purchasing moving services.
-            </p>
-            <p>
-              For additional information regarding how we use your information, please review
-              our{" "}
-              <Link href="/privacy-policy" className="text-gold no-underline hover:underline">
-                Privacy Policy
-              </Link>
-              .
-            </p>
+          <Block title="SMS Terms & Conditions">
+            <SubSection title="1. SMS Consent & Communication">
+              <p>
+                The information (including phone numbers) obtained through the SMS consent
+                process will not be shared with third parties or affiliates for marketing
+                purposes.
+              </p>
+            </SubSection>
+
+            <SubSection title="2. Types of SMS Communications">
+              <p>
+                We send conversational and informational external SMS messages. Example:
+                &ldquo;Hello, this is a friendly reminder of your upcoming move with Panther
+                Moving on [Date] at [Time]. You can reply STOP to opt out of SMS messaging from
+                Panther Moving at any time.&rdquo;
+              </p>
+            </SubSection>
+
+            <SubSection title="3. Message Frequency">
+              <p>
+                Message frequency may vary depending on the type of communication. You may
+                receive up to 5 SMS messages per week related to your appointments, moves, or
+                account status. Example: &ldquo;Message frequency may vary. You may receive up
+                to 5 SMS messages per week regarding your appointment, moves, or account
+                status.&rdquo;
+              </p>
+            </SubSection>
+
+            <SubSection title="4. Potential Fees for SMS Messaging">
+              <p>
+                Standard message and data rates may apply, depending on your mobile
+                carrier&rsquo;s pricing plan. These fees may vary based on whether the message
+                is sent domestically or internationally.
+              </p>
+            </SubSection>
+
+            <SubSection title="5. Opt-In Method">
+              <p>
+                Users can opt in by submitting an online form and checking the designated SMS
+                consent box.
+              </p>
+            </SubSection>
+
+            <SubSection title="6. Opt-Out Method">
+              <p>
+                You can opt out of receiving SMS messages at any time. To do so, simply reply
+                &ldquo;STOP&rdquo; to any SMS message you receive. Alternatively, you can
+                contact us directly to request removal from our messaging list. If you do not
+                wish to receive SMS messages, you can choose not to check the SMS consent box on
+                our forms.
+              </p>
+            </SubSection>
+
+            <SubSection title="7. Help & Support">
+              <p>
+                If you are experiencing any issues, you can reply with the keyword HELP, or you
+                can get assistance directly from us at{" "}
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-gold no-underline hover:underline"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+                .
+              </p>
+            </SubSection>
+
+            <SubSection title="8. Standard Messaging Disclosures">
+              <List
+                items={[
+                  "Message and data rates may apply.",
+                  "Message frequency may vary.",
+                  'You can opt out at any time by texting "STOP."',
+                ]}
+              />
+              <p>
+                For assistance, text &ldquo;HELP&rdquo; or visit our{" "}
+                <Link
+                  href="/privacy-policy"
+                  className="text-gold no-underline hover:underline"
+                >
+                  Privacy Policy
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/terms-and-conditions"
+                  className="text-gold no-underline hover:underline"
+                >
+                  Terms and Conditions
+                </Link>{" "}
+                pages.
+              </p>
+            </SubSection>
           </Block>
 
           <Block title="Limitation of Liability">
@@ -197,6 +262,17 @@ function Block({ title, children }: { title: string; children: ReactNode }) {
       <h2 className="font-heading text-[22px] uppercase tracking-[1px] text-black-primary">
         {title}
       </h2>
+      {children}
+    </div>
+  );
+}
+
+function SubSection({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <div className="space-y-2">
+      <h3 className="font-heading text-[16px] font-semibold uppercase tracking-[0.5px] text-black-primary">
+        {title}
+      </h3>
       {children}
     </div>
   );

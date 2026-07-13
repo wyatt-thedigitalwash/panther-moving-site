@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { SITE } from "@/lib/constants";
 import { PhoneIcon } from "@/components/Icons";
 import QuoteCTA from "@/components/QuoteCTA";
@@ -109,6 +110,37 @@ export default function ContactPage() {
           {/* Quote CTA — first on mobile, right on desktop */}
           <ScrollReveal className="order-1 md:order-2">
             <QuoteCTA />
+
+            {/* SMS consent disclosure */}
+            <div className="mt-5 rounded-lg border border-[#ddd] p-5">
+              <label className="flex gap-3 text-[13px] leading-[1.7] text-grey">
+                <input
+                  type="checkbox"
+                  className="mt-1 h-4 w-4 shrink-0 accent-gold"
+                  aria-label="Consent to receive text messages from Panther Moving"
+                />
+                <span>
+                  By checking this box, I consent to receive text messages related to
+                  conversational messages from Panther Moving. You can reply &ldquo;STOP&rdquo;
+                  at any time to opt-out. Message and data rates may apply. Message frequency
+                  may vary, text HELP for assistance. For more information, please visit our{" "}
+                  <Link
+                    href="/privacy-policy"
+                    className="text-gold no-underline hover:underline"
+                  >
+                    Privacy Policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/terms-and-conditions"
+                    className="text-gold no-underline hover:underline"
+                  >
+                    SMS Terms and Conditions
+                  </Link>
+                  .
+                </span>
+              </label>
+            </div>
           </ScrollReveal>
         </div>
       </section>

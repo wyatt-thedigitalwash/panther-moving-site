@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { type ReactNode } from "react";
 import { BreadcrumbSchema } from "@/lib/breadcrumbs";
 
@@ -111,8 +112,23 @@ export default function PrivacyPolicyPage() {
               </a>
             </p>
             <p>
-              No mobile opt-in or text message consent will be shared with third parties or
-              affiliates for marketing purposes.
+              SMS Consent and phone numbers collected for SMS communication purposes will not
+              be shared with any third party or affiliates for marketing purposes.
+            </p>
+            <p>
+              Message and data rates may apply. Message frequency may vary. You can opt out at
+              any time by texting STOP. For assistance, text HELP or visit our{" "}
+              <Link href="/privacy-policy" className="text-gold no-underline hover:underline">
+                Privacy Policy
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/terms-and-conditions"
+                className="text-gold no-underline hover:underline"
+              >
+                SMS Terms and Conditions
+              </Link>{" "}
+              pages.
             </p>
           </Block>
 
